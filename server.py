@@ -5,10 +5,10 @@ import urllib
 from http.server import BaseHTTPRequestHandler, HTTPServer
 from camera import take_picture
 
-LOOP_BACK_ADDRESS = '127.0.0.1'
+LOOP_BACK_ADDRESS = '0.0.0.0'
+index = 0
 
 class RouteHandler(BaseHTTPRequestHandler):#
-  index = 0
 
   def do_GET(self):
     self.send_response(200)
@@ -16,13 +16,14 @@ class RouteHandler(BaseHTTPRequestHandler):#
     ## send videos 
 
   def do_POST(self):
+    global index
     self.send_response(200)
-
+    
     self.send_header('Content-type',  'text/html')
     self.end_headers()
-
-    self.index += 1
-    take_picture('%03d'%self.index)
+    
+    index += 1
+    take_picture('%03d'%index)
     self.wfile.write(bytes('hi', 'utf8'))
 
     return

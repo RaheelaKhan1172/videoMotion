@@ -8,7 +8,7 @@ function emitEvent() {
     port: '8000',
     method: 'POST',
     path: '/',
-    host: 'http://127.0.0.1',
+    host: 'camera-server',
     headers: {
       'Content-Length': 0
     }
