@@ -1,6 +1,6 @@
 from http.server import BaseHTTPRequestHandler, HTTPServer
 from os import curdir
-
+##### DELETING SOON #####
 LOOP_BACK_ADDRESS = '127.0.0.1' 
 
 class ClientHandler(BaseHTTPRequestHandler):
